@@ -35,7 +35,7 @@
 <meta property="og:image" content="https://hopegogogo1.github.io/2022/06/07/Ajax/Ajax%E7%AC%94%E8%AE%B0/Ajax%E7%AC%94%E8%AE%B0/%E5%AF%B9AJAX%E5%BC%82%E6%AD%A5%E8%AF%B7%E6%B1%82%E7%9A%84%E7%90%86%E8%A7%A3.png">
 <meta property="og:image" content="https://hopegogogo1.github.io/2022/06/07/Ajax/Ajax%E7%AC%94%E8%AE%B0/Ajax%E7%AC%94%E8%AE%B0/XMLHttpRequest%E7%9A%84readyState%E5%B1%9E%E6%80%A7.png">
 <meta property="article:published_time" content="2022-06-07T02:02:16.000Z">
-<meta property="article:modified_time" content="2022-06-07T02:32:50.623Z">
+<meta property="article:modified_time" content="2022-07-15T10:47:02.349Z">
 <meta property="article:author" content="Zidian Wei">
 <meta property="article:tag" content="Ajax">
 <meta name="twitter:card" content="summary">
@@ -156,7 +156,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#AJAX%EF%BC%88Asynchronous-Javascript-And-Xml%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">AJAX（Asynchronous Javascript And Xml）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%A0%E7%BB%9F%E8%AF%B7%E6%B1%82%E5%8F%8A%E7%BC%BA%E7%82%B9"><span class="nav-number">1.1.</span> <span class="nav-text">传统请求及缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AJAX%E6%A6%82%E8%BF%B0"><span class="nav-number">1.2.</span> <span class="nav-text">AJAX概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XMLHttpRequest%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.3.</span> <span class="nav-text">XMLHttpRequest对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AJAX-GET%E8%AF%B7%E6%B1%82"><span class="nav-number">1.4.</span> <span class="nav-text">AJAX GET请求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AJAX-GET%E8%AF%B7%E6%B1%82%E7%9A%84%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98"><span class="nav-number">1.5.</span> <span class="nav-text">AJAX GET请求的缓存问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AJAX-POST%E8%AF%B7%E6%B1%82"><span class="nav-number">1.6.</span> <span class="nav-text">AJAX POST请求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8EJSON%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BA%A4%E6%8D%A2"><span class="nav-number">1.7.</span> <span class="nav-text">基于JSON的数据交换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8EXML%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BA%A4%E6%8D%A2"><span class="nav-number">1.8.</span> <span class="nav-text">基于XML的数据交换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AJAX%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98"><span class="nav-number">1.9.</span> <span class="nav-text">AJAX乱码问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AJAX%E7%9A%84%E5%BC%82%E6%AD%A5%E4%B8%8E%E5%90%8C%E6%AD%A5"><span class="nav-number">1.10.</span> <span class="nav-text">AJAX的异步与同步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AJAX%E4%BB%A3%E7%A0%81%E5%B0%81%E8%A3%85"><span class="nav-number">1.11.</span> <span class="nav-text">AJAX代码封装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AJAX%E5%AE%9E%E7%8E%B0%E7%9C%81%E5%B8%82%E8%81%94%E5%8A%A8"><span class="nav-number">1.12.</span> <span class="nav-text">AJAX实现省市联动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AJAX%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98"><span class="nav-number">1.13.</span> <span class="nav-text">AJAX跨域问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AJAX%E5%AE%9E%E7%8E%B0%E6%90%9C%E7%B4%A2%E8%81%94%E6%83%B3-%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8"><span class="nav-number">1.14.</span> <span class="nav-text">AJAX实现搜索联想 自动补全</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%84%E5%BD%95%EF%BC%9AHTTP%E7%8A%B6%E6%80%81%E4%BF%A1%E6%81%AF"><span class="nav-number">1.15.</span> <span class="nav-text">附录：HTTP状态信息</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1xx-%E4%BF%A1%E6%81%AF"><span class="nav-number">1.15.1.</span> <span class="nav-text">1xx: 信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2xx-%E6%88%90%E5%8A%9F"><span class="nav-number">1.15.2.</span> <span class="nav-text">2xx: 成功</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3xx-%E9%87%8D%E5%AE%9A%E5%90%91"><span class="nav-number">1.15.3.</span> <span class="nav-text">3xx: 重定向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4xx-%E5%AE%A2%E6%88%B7%E7%AB%AF%E9%94%99%E8%AF%AF"><span class="nav-number">1.15.4.</span> <span class="nav-text">4xx: 客户端错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5xx-%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%94%99%E8%AF%AF"><span class="nav-number">1.15.5.</span> <span class="nav-text">5xx: 服务器错误</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#AJAX%EF%BC%88Asynchronous-Javascript-And-Xml%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">AJAX（Asynchronous Javascript And Xml）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%A0%E7%BB%9F%E8%AF%B7%E6%B1%82%E5%8F%8A%E7%BC%BA%E7%82%B9"><span class="nav-number">1.1.</span> <span class="nav-text">传统请求及缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AJAX%E6%A6%82%E8%BF%B0"><span class="nav-number">1.2.</span> <span class="nav-text">AJAX概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XMLHttpRequest%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.3.</span> <span class="nav-text">XMLHttpRequest对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AJAX-GET%E8%AF%B7%E6%B1%82"><span class="nav-number">1.4.</span> <span class="nav-text">AJAX GET请求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AJAX-GET%E8%AF%B7%E6%B1%82%E7%9A%84%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98"><span class="nav-number">1.5.</span> <span class="nav-text">AJAX GET请求的缓存问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AJAX-POST%E8%AF%B7%E6%B1%82"><span class="nav-number">1.6.</span> <span class="nav-text">AJAX POST请求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8EJSON%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BA%A4%E6%8D%A2"><span class="nav-number">1.7.</span> <span class="nav-text">基于JSON的数据交换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8EXML%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BA%A4%E6%8D%A2"><span class="nav-number">1.8.</span> <span class="nav-text">基于XML的数据交换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AJAX%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98"><span class="nav-number">1.9.</span> <span class="nav-text">AJAX乱码问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AJAX%E7%9A%84%E5%BC%82%E6%AD%A5%E4%B8%8E%E5%90%8C%E6%AD%A5"><span class="nav-number">1.10.</span> <span class="nav-text">AJAX的异步与同步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AJAX%E4%BB%A3%E7%A0%81%E5%B0%81%E8%A3%85"><span class="nav-number">1.11.</span> <span class="nav-text">AJAX代码封装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AJAX%E5%AE%9E%E7%8E%B0%E7%9C%81%E5%B8%82%E8%81%94%E5%8A%A8"><span class="nav-number">1.12.</span> <span class="nav-text">AJAX实现省市联动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#id-PK-%E8%87%AA%E5%A2%9E-code-name-pcode"><span class="nav-number">1.13.</span> <span class="nav-text">id(PK-自增)      code        name        pcode</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%A1%882%EF%BC%9Ajsonp"><span class="nav-number">1.13.0.1.</span> <span class="nav-text">方案2：jsonp</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%A1%883%EF%BC%9AjQuery%E5%B0%81%E8%A3%85%E7%9A%84jsonp"><span class="nav-number">1.13.0.2.</span> <span class="nav-text">方案3：jQuery封装的jsonp</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%A1%884%EF%BC%9A%E4%BB%A3%E7%90%86%E6%9C%BA%E5%88%B6%EF%BC%88httpclient%EF%BC%89"><span class="nav-number">1.13.0.3.</span> <span class="nav-text">方案4：代理机制（httpclient）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%A1%885%EF%BC%9Anginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86"><span class="nav-number">1.13.0.4.</span> <span class="nav-text">方案5：nginx反向代理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AJAX%E5%AE%9E%E7%8E%B0%E6%90%9C%E7%B4%A2%E8%81%94%E6%83%B3-%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8"><span class="nav-number">1.14.</span> <span class="nav-text">AJAX实现搜索联想 自动补全</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%84%E5%BD%95%EF%BC%9AHTTP%E7%8A%B6%E6%80%81%E4%BF%A1%E6%81%AF"><span class="nav-number">1.15.</span> <span class="nav-text">附录：HTTP状态信息</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1xx-%E4%BF%A1%E6%81%AF"><span class="nav-number">1.15.1.</span> <span class="nav-text">1xx: 信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2xx-%E6%88%90%E5%8A%9F"><span class="nav-number">1.15.2.</span> <span class="nav-text">2xx: 成功</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3xx-%E9%87%8D%E5%AE%9A%E5%90%91"><span class="nav-number">1.15.3.</span> <span class="nav-text">3xx: 重定向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4xx-%E5%AE%A2%E6%88%B7%E7%AB%AF%E9%94%99%E8%AF%AF"><span class="nav-number">1.15.4.</span> <span class="nav-text">4xx: 客户端错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5xx-%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%94%99%E8%AF%AF"><span class="nav-number">1.15.5.</span> <span class="nav-text">5xx: 服务器错误</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -255,9 +255,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-06-07 10:02:16 / 修改时间：10:32:50" itemprop="dateCreated datePublished" datetime="2022-06-07T10:02:16+08:00">2022-06-07</time>
+      <time title="创建时间：2022-06-07 10:02:16" itemprop="dateCreated datePublished" datetime="2022-06-07T10:02:16+08:00">2022-06-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-07-15 18:47:02" itemprop="dateModified" datetime="2022-07-15T18:47:02+08:00">2022-07-15</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -572,32 +578,73 @@
 </li>
 <li><p>进行数据库表的设计</p>
 <ul>
-<li><pre><code>t_area （区域表）
-id(PK-自增)      code        name        pcode
----------------------------------------------
-1                001         河北省        null
-2                002         河南省        null
-3                003         石家庄        001
-4                004         邯郸             001
-5                005         郑州             002
-6                006         洛阳             002
-7                007         丛台区        004  
-
-将全国所有的省、市、区、县等信息都存储到一张表当中。
-采用的存储方式实际上是code pcode形势。
+<li>```<br>t_area （区域表）<h2 id="id-PK-自增-code-name-pcode"><a href="#id-PK-自增-code-name-pcode" class="headerlink" title="id(PK-自增)      code        name        pcode"></a>id(PK-自增)      code        name        pcode</h2>1                001         河北省        null<br>2                002         河南省        null<br>3                003         石家庄        001<br>4                004         邯郸             001<br>5                005         郑州             002<br>6                006         洛阳             002<br>7                007         丛台区        004  将全国所有的省、市、区、县等信息都存储到一张表当中。<br>采用的存储方式实际上是code pcode形势。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 建表t_area，模拟好数据。</span><br><span class="line"></span><br><span class="line">- 首先实现第一个功能：</span><br><span class="line"></span><br><span class="line">  - 页面加载完毕之后，先把省份全部展现出来。</span><br><span class="line"></span><br><span class="line">## AJAX跨域问题</span><br><span class="line"></span><br><span class="line">### 跨域</span><br><span class="line"></span><br><span class="line">- 跨域是指从一个域名的网页去请求另一个域名的资源。比如从百度(https://baidu.com)页面去请求京东(https://www.jd.com)的资源。</span><br><span class="line"></span><br><span class="line">- 通过超链接或者form表单提交或者window.location.href的方式进行跨域是不存在问题的（**大家可以编写程序测试一下**）。但在一个域名的网页中的一段js代码发送ajax请求去访问另一个域名中的资源，由于同源策略的存在导致无法跨域访问，那么ajax就存在这种跨域问题。</span><br><span class="line"></span><br><span class="line">- 同源策略是指一段脚本只能读取来自同一来源的窗口和文档的属性，同源就是协议、域名和端口都相同。</span><br><span class="line"></span><br><span class="line">- 同源策略有什么用？如果你刚刚在网银输入账号密码，查看了自己还有1万块钱，紧接着访问一些不规矩的网站，这个网站可以访问刚刚的网银站点，并且获取账号密码，那后果可想而知。所以，从安全的角度来讲，同源策略是有利于保护网站信息的。</span><br><span class="line"></span><br><span class="line">- 有一些情况下，我们是需要使用ajax进行跨域访问的。比如某公司的A页面(a.bjpowernode.com)有可能需要获取B页面(b.bjpowernode.com)。</span><br><span class="line"></span><br><span class="line">  ### 同源还是不同源</span><br><span class="line"></span><br><span class="line">  - 区分同源和不同源的三要素</span><br><span class="line"></span><br><span class="line">  - - 协议</span><br><span class="line">    - 域名</span><br><span class="line">    - 端口</span><br><span class="line"></span><br><span class="line">  - 协议一致，域名一致，端口号一致，三个要素都一致，才是同源，其它一律都是不同源</span><br><span class="line"></span><br><span class="line">  | **URL1**                           | **URL2**                        | **是否同源** | 描述               |</span><br><span class="line">  | ---------------------------------- | ------------------------------- | ------------ | ------------------ |</span><br><span class="line">  | http://localhost:8080/a/index.html | http://localhost:8080/a/first   | 同源         | 协议 域名 端口一致 |</span><br><span class="line">  | http://localhost:8080/a/index.html | http://localhost:8080/b/first   | 同源         | 协议 域名 端口一致 |</span><br><span class="line">  | http://www.myweb.com:8080/a.js     | https://www.myweb.com:8080/b.js | 不同源       | 协议不同           |</span><br><span class="line">  | http://www.myweb.com:8080/a.js     | http://www.myweb.com:8081/b.js  | 不同源       | 端口不同           |</span><br><span class="line">  | http://www.myweb.com/a.js          | http://www.myweb2.com/b.js      | 不同源       | 域名不同           |</span><br><span class="line">  | http://www.myweb.com/a.js          | http://crm.myweb.com/b.js       | 不同源       | 子域名不同         |</span><br><span class="line"></span><br><span class="line">### 复现AJAX跨域问题</span><br><span class="line"></span><br><span class="line">### AJAX跨域解决方案</span><br><span class="line"></span><br><span class="line">#### 方案1：设置响应头</span><br><span class="line"></span><br><span class="line">- 核心原理：跨域访问的资源允许你跨域访问。</span><br><span class="line"></span><br><span class="line">- 实现：</span><br><span class="line"></span><br><span class="line">  - ```java</span><br><span class="line">    response.setHeader(&quot;Access-Control-Allow-Origin&quot;, &quot;http://localhost:8080&quot;); // 允许某个</span><br><span class="line">    response.setHeader(&quot;Access-Control-Allow-Origin&quot;, &quot;*&quot;); // 允许所有</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h4 id="方案2：jsonp"><a href="#方案2：jsonp" class="headerlink" title="方案2：jsonp"></a>方案2：jsonp</h4><ul>
+<li>jsonp：json with padding（带填充的json【学完之后再理解这个什么意思！！！】）</li>
+<li>jsonp不是一个真正的ajax请求。只不过可以完成ajax的局部刷新效果。可以说jsonp是一种类ajax请求的机制。</li>
+<li>jsonp不是ajax请求，但是可以完成局部刷新的效果，并且可以解决跨域问题。</li>
+<li>注意：jsonp解决跨域的时候，只支持GET请求。不支持post请求。</li>
+</ul>
+<h4 id="方案3：jQuery封装的jsonp"><a href="#方案3：jQuery封装的jsonp" class="headerlink" title="方案3：jQuery封装的jsonp"></a>方案3：jQuery封装的jsonp</h4><ul>
+<li><p>牛人们写的jQuery库，已经对jsonp进行了封装。大家可以直接拿来用。</p>
+</li>
+<li><p>用之前需要引入jQuery库的js文件。（这里的jQuery库咱们就不再封装了，咱们直接用jQuery写好的jsonp方式。）</p>
+</li>
+<li><p>jQuery中的jsonp其实就是我们方案2的高度封装，底层原理完全相同。</p>
+</li>
+<li><p>核心代码</p>
+<ul>
+<li><pre><code class="javascript">$.ajax(&#123;
+    type : &quot;GET&quot;,
+    url : &quot;跨域的url&quot;,
+    dataType : &quot;jsonp&quot;, // 指定数据类型
+    jsonp : &quot;fun&quot;, // 指定参数名（不设置的时候，默认是：&quot;callback&quot;）
+    jsonpCallback : &quot;sayHello&quot; // 指定回调函数的名字
+                               // （不设置的时候，jQuery会自动生成一个随机的回调函数，
+                               //并且这个回调函数还会自动调用success的回调函数。）
+&#125;)
 </code></pre>
 </li>
 </ul>
 </li>
-<li><p>建表t_area，模拟好数据。</p>
+</ul>
+<h4 id="方案4：代理机制（httpclient）"><a href="#方案4：代理机制（httpclient）" class="headerlink" title="方案4：代理机制（httpclient）"></a>方案4：代理机制（httpclient）</h4><ul>
+<li>使用Java程序怎么去发送get/post请求呢？【GET和POST请求就是HTTP请求。】<ul>
+<li>第一种方案：使用JDK内置的API（java.net.URL…..），这些API是可以发送HTTP请求的。</li>
+<li>第二种方案：使用第三方的开源组件，比如：apache的httpclient组件。（httpclient组件是开源免费的，可以直接用）</li>
+</ul>
 </li>
-<li><p>首先实现第一个功能：</p>
-<ul>
-<li>页面加载完毕之后，先把省份全部展现出来。</li>
+<li>在java程序中，使用httpclient组件可以发送http请求。<ul>
+<li>对于httpclient组件的代码，大家目前可以不进行深入的研究，可以从网上直接搜。然后粘贴过来，改一改，看看能不能完成发送get和post请求。</li>
+<li>使用httpclient组件，需要先将这个组件相关的jar包引入到项目当中。</li>
 </ul>
 </li>
 </ul>
-<h2 id="AJAX跨域问题"><a href="#AJAX跨域问题" class="headerlink" title="AJAX跨域问题"></a>AJAX跨域问题</h2><h2 id="AJAX实现搜索联想-自动补全"><a href="#AJAX实现搜索联想-自动补全" class="headerlink" title="AJAX实现搜索联想 自动补全"></a>AJAX实现搜索联想 自动补全</h2><h2 id="附录：HTTP状态信息"><a href="#附录：HTTP状态信息" class="headerlink" title="附录：HTTP状态信息"></a>附录：HTTP状态信息</h2><h3 id="1xx-信息"><a href="#1xx-信息" class="headerlink" title="1xx: 信息"></a>1xx: 信息</h3><table>
+<h4 id="方案5：nginx反向代理"><a href="#方案5：nginx反向代理" class="headerlink" title="方案5：nginx反向代理"></a>方案5：nginx反向代理</h4><ul>
+<li>nginx反向代理中也是使用了这种代理机制来完成AJAX的跨域，实现起来非常简单，只要修改一个nginx的配置即可。以后大家学习nginx之后再说吧。！！！！</li>
+</ul>
+<h2 id="AJAX实现搜索联想-自动补全"><a href="#AJAX实现搜索联想-自动补全" class="headerlink" title="AJAX实现搜索联想 自动补全"></a>AJAX实现搜索联想 自动补全</h2><ul>
+<li>什么是搜索联想？自动补全？<ul>
+<li>百度是一个很典型的代表。在百度的搜索框中输入相关信息的时候，会有搜索联想以及自动补全。</li>
+<li>搜索联想和自动补全：实际上是为了方便用户的使用。让用户的体验更好。</li>
+<li>搜索联想：当用户输入一些单词之后，自动联想出用户要搜索的信息，给一个提示。</li>
+<li>自动补全：当联想出一些内容之后，用户点击某个联想的单词，然后将这个单词自动补全到搜索框当中。</li>
+<li>搜索联想和自动补全功能，因为是页面局部刷新效果，所以需要使用ajax请求来完成。</li>
+</ul>
+</li>
+<li>搜索联想，自动补全功能的核心实现原理？<ul>
+<li>当键盘事件发生之后，比如：keyup：键弹起事件。</li>
+<li>发送ajax请求，请求中提交用户输入的搜索内容，例如：北京（发送ajax请求，携带“北京”两个字）</li>
+<li>后端接收到ajax请求，接收到“北京”两个字，执行select语句进行模糊查询。返回查询结果。</li>
+<li>将查询结果封装成json格式的字符串，将json格式的字符串响应到前端。</li>
+<li>前端接收到json格式的字符串之后，解析这个json字符串，动态展示页面。</li>
+</ul>
+</li>
+</ul>
+<h2 id="附录：HTTP状态信息"><a href="#附录：HTTP状态信息" class="headerlink" title="附录：HTTP状态信息"></a>附录：HTTP状态信息</h2><h3 id="1xx-信息"><a href="#1xx-信息" class="headerlink" title="1xx: 信息"></a>1xx: 信息</h3><table>
 <thead>
 <tr>
 <th align="left">消息:</th>
