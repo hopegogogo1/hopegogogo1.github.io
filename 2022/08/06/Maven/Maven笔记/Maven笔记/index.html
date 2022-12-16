@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+
+
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hopegogogo1.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+
+    <meta name="description" content="第一部分1.完成一个java项目，需要做哪些工作1.分析项目要做什么，知道项目有哪些组成部分。2.设计项目，通过哪些步骤，使用哪些技术。需要多少人， 多长的时间。3.组建团队，招人， 购置设备，服务器， 软件， 笔记本。4.开发人员写代码。 开发人员需要测试自己写代码。 重复多次的工作。5.测试人员，测试项目功能是否符合要求。  测试开发人员提交代码-如果测试有问题–需要开发人员修改–在提交代码给">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Maven笔记">
+<meta property="og:url" content="https://hopegogogo1.github.io/2022/08/06/Maven/Maven%E7%AC%94%E8%AE%B0/Maven%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Aiden&#39;s Secret Base">
+<meta property="og:description" content="第一部分1.完成一个java项目，需要做哪些工作1.分析项目要做什么，知道项目有哪些组成部分。2.设计项目，通过哪些步骤，使用哪些技术。需要多少人， 多长的时间。3.组建团队，招人， 购置设备，服务器， 软件， 笔记本。4.开发人员写代码。 开发人员需要测试自己写代码。 重复多次的工作。5.测试人员，测试项目功能是否符合要求。  测试开发人员提交代码-如果测试有问题–需要开发人员修改–在提交代码给">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://hopegogogo1.github.io/2022/08/06/Maven/Maven%E7%AC%94%E8%AE%B0/Maven%E7%AC%94%E8%AE%B0/image-20220807175631731.png">
+<meta property="og:image" content="https://hopegogogo1.github.io/2022/08/06/Maven/Maven%E7%AC%94%E8%AE%B0/Maven%E7%AC%94%E8%AE%B0/image-20220808111108740.png">
+<meta property="og:image" content="https://hopegogogo1.github.io/2022/08/06/Maven/Maven%E7%AC%94%E8%AE%B0/Maven%E7%AC%94%E8%AE%B0/image-20220808111133319.png">
+<meta property="og:image" content="https://hopegogogo1.github.io/2022/08/06/Maven/Maven%E7%AC%94%E8%AE%B0/Maven%E7%AC%94%E8%AE%B0/image-20220808175247328.png">
+<meta property="article:published_time" content="2022-08-06T03:56:36.000Z">
+<meta property="article:modified_time" content="2022-08-08T09:52:49.975Z">
+<meta property="article:author" content="Zidian Wei">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hopegogogo1.github.io/2022/08/06/Maven/Maven%E7%AC%94%E8%AE%B0/Maven%E7%AC%94%E8%AE%B0/image-20220807175631731.png">
+
+
+<link rel="canonical" href="https://hopegogogo1.github.io/2022/08/06/Maven/Maven%E7%AC%94%E8%AE%B0/Maven%E7%AC%94%E8%AE%B0/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hopegogogo1.github.io/2022/08/06/Maven/Maven%E7%AC%94%E8%AE%B0/Maven%E7%AC%94%E8%AE%B0/","path":"2022/08/06/Maven/Maven笔记/Maven笔记/","title":"Maven笔记"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Maven笔记 | Aiden's Secret Base</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+
+
+<link rel="alternate" href="/atom.xml" title="Aiden's Secret Base" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+
+<div class="headband"></div>
+<a target="_blank" rel="noopener" href="https://github.com/hopegogogo1" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Aiden's Secret Base</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1456445892&auto=1&height=66"></iframe>
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86"><span class="nav-number">1.</span> <span class="nav-text">第一部分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%AE%8C%E6%88%90%E4%B8%80%E4%B8%AAjava%E9%A1%B9%E7%9B%AE%EF%BC%8C%E9%9C%80%E8%A6%81%E5%81%9A%E5%93%AA%E4%BA%9B%E5%B7%A5%E4%BD%9C"><span class="nav-number">1.1.</span> <span class="nav-text">1.完成一个java项目，需要做哪些工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%BC%A0%E7%BB%9F%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%8C%E6%B2%A1%E6%9C%89%E4%BD%BF%E7%94%A8maven%E3%80%90meivn%E3%80%91%E7%AE%A1%E7%90%86%E7%9A%84%E9%A1%B9%E7%9B%AE"><span class="nav-number">1.2.</span> <span class="nav-text">2.传统开发项目的问题，没有使用maven【meivn】管理的项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E9%9C%80%E8%A6%81%E6%94%B9%E8%BF%9B%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%BC%80%E5%8F%91%E5%92%8C%E7%AE%A1%E7%90%86%EF%BC%8C%E9%9C%80%E8%A6%81maven"><span class="nav-number">1.3.</span> <span class="nav-text">3.需要改进项目的开发和管理，需要maven</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E6%9E%84%E5%BB%BA%EF%BC%9A-%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%9E%84%E5%BB%BA%E3%80%82"><span class="nav-number">1.4.</span> <span class="nav-text">4.构建： 项目的构建。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-maven%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5%EF%BC%9A-%E7%94%A8%E5%A5%BDmaven%EF%BC%8C%E4%BA%86%E8%A7%A3%E8%BF%99%E4%BA%9B%E6%A6%82%E5%BF%B5"><span class="nav-number">1.5.</span> <span class="nav-text">5.maven核心概念： 用好maven，了解这些概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-maven%E5%B7%A5%E5%85%B7%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE%E3%80%82"><span class="nav-number">1.6.</span> <span class="nav-text">6.maven工具的安装和配置。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86"><span class="nav-number">2.</span> <span class="nav-text">第二部分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-maven%E7%BA%A6%E5%AE%9A%E7%9A%84%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%EF%BC%8C-%E7%BA%A6%E5%AE%9A%E6%98%AF%E5%A4%A7%E5%AE%B6%E9%83%BD%E9%81%B5%E5%BE%AA%E7%9A%84%E4%B8%80%E4%B8%AA%E8%A7%84%E5%88%99%E3%80%82"><span class="nav-number">2.1.</span> <span class="nav-text">1.maven约定的目录结构， 约定是大家都遵循的一个规则。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E7%96%91%E9%97%AE%EF%BC%9A-mvn-compile-%E7%BC%96%E8%AF%91src-main%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84%E6%89%80%E6%9C%89java%E6%96%87%E4%BB%B6%E7%9A%84%E3%80%82"><span class="nav-number">2.2.</span> <span class="nav-text">2.疑问： mvn compile 编译src&#x2F;main目录下的所有java文件的。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E4%BB%93%E5%BA%93"><span class="nav-number">2.3.</span> <span class="nav-text">3.仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-pom-%E9%A1%B9%E7%9B%AE%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B%EF%BC%8C%E6%98%AF%E4%B8%80%E4%B8%AApom-xml%E6%96%87%E4%BB%B6"><span class="nav-number">2.4.</span> <span class="nav-text">4.pom:项目对象模型，是一个pom.xml文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-maven%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%EF%BC%8C-maven%E7%9A%84%E5%91%BD%E4%BB%A4%EF%BC%8Cmaven%E7%9A%84%E6%8F%92%E4%BB%B6"><span class="nav-number">2.5.</span> <span class="nav-text">5.maven生命周期， maven的命令，maven的插件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E9%83%A8%E5%88%86"><span class="nav-number">3.</span> <span class="nav-text">第三部分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%9C%A8idea%E4%B8%AD%E8%AE%BE%E7%BD%AEmaven-%EF%BC%8C%E8%AE%A9idea%E5%92%8Cmaven%E7%BB%93%E5%90%88%E4%BD%BF%E7%94%A8%E3%80%82"><span class="nav-number">3.1.</span> <span class="nav-text">1.在idea中设置maven ，让idea和maven结合使用。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%BD%BF%E7%94%A8%E6%A8%A1%E7%89%88%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE"><span class="nav-number">3.2.</span> <span class="nav-text">2.使用模版创建项目</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E9%83%A8%E5%88%86"><span class="nav-number">4.</span> <span class="nav-text">第四部分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E4%BE%9D%E8%B5%96%E8%8C%83%E5%9B%B4%EF%BC%8C-%E4%BD%BF%E7%94%A8scope%E8%A1%A8%E7%A4%BA%E7%9A%84%E3%80%82"><span class="nav-number">4.1.</span> <span class="nav-text">1依赖范围， 使用scope表示的。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E9%83%A8%E5%88%86"><span class="nav-number">5.</span> <span class="nav-text">第五部分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-maven%E7%9A%84%E5%B1%9E%E6%80%A7%E8%AE%BE%E7%BD%AE"><span class="nav-number">5.1.</span> <span class="nav-text">1.maven的属性设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-maven%E7%9A%84%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F"><span class="nav-number">5.2.</span> <span class="nav-text">2.maven的全局变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E8%B5%84%E6%BA%90%E6%8F%92%E4%BB%B6"><span class="nav-number">5.3.</span> <span class="nav-text">3.资源插件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE"><span class="nav-number">6.</span> <span class="nav-text">六思维导图</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zidian Wei"
+      src="/./images/header.jpg">
+  <p class="site-author-name" itemprop="name">Zidian Wei</p>
+  <div class="site-description" itemprop="description">勇敢做自己</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/hopegogogo1" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;hopegogogo1" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hopegogogo1.github.io/2022/08/06/Maven/Maven%E7%AC%94%E8%AE%B0/Maven%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/./images/header.jpg">
+      <meta itemprop="name" content="Zidian Wei">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aiden's Secret Base">
+      <meta itemprop="description" content="勇敢做自己">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Maven笔记 | Aiden's Secret Base">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Maven笔记
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-08-06 11:56:36" itemprop="dateCreated datePublished" datetime="2022-08-06T11:56:36+08:00">2022-08-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-08-08 17:52:49" itemprop="dateModified" datetime="2022-08-08T17:52:49+08:00">2022-08-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Maven/" itemprop="url" rel="index"><span itemprop="name">Maven</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="第一部分"><a href="#第一部分" class="headerlink" title="第一部分"></a>第一部分</h2><h3 id="1-完成一个java项目，需要做哪些工作"><a href="#1-完成一个java项目，需要做哪些工作" class="headerlink" title="1.完成一个java项目，需要做哪些工作"></a>1.完成一个java项目，需要做哪些工作</h3><p>1.分析项目要做什么，知道项目有哪些组成部分。<br>2.设计项目，通过哪些步骤，使用哪些技术。需要多少人， 多长的时间。<br>3.组建团队，招人， 购置设备，服务器， 软件， 笔记本。<br>4.开发人员写代码。 开发人员需要测试自己写代码。 重复多次的工作。<br>5.测试人员，测试项目功能是否符合要求。<br>  测试开发人员提交代码-如果测试有问题–需要开发人员修改–在提交代码给测试<br>  –测试人员在测试代码-如果还有问题-在交给开发人员-开发人员在提交-在测试<br>  直到-测试代码通过。</p>
+<h3 id="2-传统开发项目的问题，没有使用maven【meivn】管理的项目"><a href="#2-传统开发项目的问题，没有使用maven【meivn】管理的项目" class="headerlink" title="2.传统开发项目的问题，没有使用maven【meivn】管理的项目"></a>2.传统开发项目的问题，没有使用maven【meivn】管理的项目</h3><p>  1）很多模块，模块之间有关系， 手工管理关系，比较繁琐。<br>  2）需要很多第三方功能， 需要很多jar文件，需要手工从网络中获取各个jar<br>  3）需要管理jar的版本， 你需要的是mysql.5.1.5.jar 拿你不能给给一个mysql.4.0.jar<br>  4）管理jar文件之间的依赖， 你的项目要使用a.jar 需要使用b.jar里面的类。<br>     必须首先获取到b.jar才可以， 然后才能使用a.jar. </p>
+<p>​    a.jar需要b.jar这个关系叫做依赖， 或者你的项目中要使用mysql的驱动， 也可以叫做项目依赖mysql驱动。</p>
+<pre><code> a.class使用b.class， a依赖b类
+</code></pre>
+<h3 id="3-需要改进项目的开发和管理，需要maven"><a href="#3-需要改进项目的开发和管理，需要maven" class="headerlink" title="3.需要改进项目的开发和管理，需要maven"></a>3.需要改进项目的开发和管理，需要maven</h3><p>​    1）maven可以管理jar文件<br>​    2）自动下载jar和他的文档，源代码<br>​    3）管理jar直接的依赖， a.jar需要b.jar ， maven会自动下载b.jar<br>​    4）管理你需要的jar版本<br>​    5）帮你编译程序，把java编译为class<br>​    6）帮你测试你的代码是否正确。<br>​    7）帮你打包文件，形成jar文件，或者war文件<br>​    8）帮你部署项目</p>
+<h3 id="4-构建：-项目的构建。"><a href="#4-构建：-项目的构建。" class="headerlink" title="4.构建： 项目的构建。"></a>4.构建： 项目的构建。</h3><p>   构建是面向过程的，就是一些步骤，完成项目代码的编译，测试，运行，打包，部署等等。<br>   maven支持的构建包括有：<br>    1.清理， 把之前项目编译的东西删除掉，我新的编译代码做准备。<br>    2.编译， 把程序源代码编译为执行代码， java-class文件<br>             批量的，maven可以同时把成千上百的文件编译为class。<br>         javac 不一样，javac一次编译一个文件。<br>    3.测试， maven可以执行测试程序代码，验证你的功能是否正确。<br>             批量的，maven同时执行多个测试代码，同时测试很多功能。<br>    4.报告， 生成测试结果的文件， 测试通过没有。<br>    5.打包， 把你的项目中所有的class文件，配置文件等所有资源放到一个压缩文件中。<br>              这个压缩文件就是项目的结果文件， 通常java程序，压缩文件是jar扩展名的。<br>          对于web应用，压缩文件扩展名是.war<br>    6.安装， 把5中生成的文件jar，war安装到本机仓库<br>    7.部署， 把程序安装好可以执行。</p>
+<h3 id="5-maven核心概念：-用好maven，了解这些概念"><a href="#5-maven核心概念：-用好maven，了解这些概念" class="headerlink" title="5.maven核心概念： 用好maven，了解这些概念"></a>5.maven核心概念： 用好maven，了解这些概念</h3><p>①POM ： 一个文件 名称是pom.xml ,  pom翻译过来叫做项目对象模型。<br>         maven把一个项目当做一个模型使用。控制maven构建项目的过程，管理jar依赖。</p>
+<p>②约定的目录结构 ： maven项目的目录和文件的位置都是规定的。</p>
+<p>③坐标 ： 是一个唯一的字符串，用来表示资源的。</p>
+<p>④依赖管理 ： 管理你的项目可以使用jar文件</p>
+<p>⑤仓库管理（了解） ：你的资源存放的位置</p>
+<p>⑥生命周期 (了解) ： maven工具构建项目的过程，就是生命周期。<br>⑦插件和目标（了解）：执行maven构建的时候用的工具是插件<br>⑧继承<br>⑨聚合</p>
+<p>讲maven的使用，先难后易的。 难是说使用maven的命令，完成maven使用 ， 在idea中直接使用maven，代替命令。</p>
+<h3 id="6-maven工具的安装和配置。"><a href="#6-maven工具的安装和配置。" class="headerlink" title="6.maven工具的安装和配置。"></a>6.maven工具的安装和配置。</h3><p>  1）需要从maven的官网下载maven的安装包 apache-maven-3.3.9-bin.zip<br>  2）解压安装包，解压到一个目录，非中文目录。<br>      子目录 bin :执行程序，主要是mvn.cmd<br>               conf :maven工具本身的配置文件 settings.xml<br>  3）配置环境变量<br>     在系统的环境变量中，指定一个M2_HOME的名称， 指定它的值是maven工具安装目录，bin之前的目录</p>
+<p>M2_HOME=D:\work\maven_work\apache-maven-3.3.9</p>
+<p> 再把M2_HOME加入到path之中，在所有路径之前加入 %M2_HOME%\bin;</p>
+<p>  4）验证，新的命令行中，执行mvn -v</p>
+<p>注意：需要配置JAVA_HOME ，指定jdk路径</p>
+<pre><code>C:\Users\Administrator&gt;mvn -v
+ 出现如下内容，maven安装，配置正确。
+Apache Maven 3.3.9 (bb52d8502b132ec0a5a3f4c09453c07478323dc5; 2015-11-11T00:41:4
+Maven home: D:\work\maven_work\apache-maven-3.3.9
+Java version: 1.8.0_40, vendor: Oracle Corporation
+Java home: C:\java\JDK8-64\jre
+Default locale: zh_CN, platform encoding: GBK
+OS name: &quot;windows 7&quot;, version: &quot;6.1&quot;, arch: &quot;amd64&quot;, family: &quot;dos&quot;
+</code></pre>
+<h2 id="第二部分"><a href="#第二部分" class="headerlink" title="第二部分"></a>第二部分</h2><h3 id="1-maven约定的目录结构，-约定是大家都遵循的一个规则。"><a href="#1-maven约定的目录结构，-约定是大家都遵循的一个规则。" class="headerlink" title="1.maven约定的目录结构， 约定是大家都遵循的一个规则。"></a>1.maven约定的目录结构， 约定是大家都遵循的一个规则。</h3><p>   每一个maven项目在磁盘中都是一个文件夹（项目-Hello）<br>    Hello/<br>      —/src<br>      ——/main           #放你主程序java代码和配置文件<br>      ———-/java       #你的程序包和包中的java文件<br>      ———-/resources  #你的java程序中要使用的配置文件</p>
+<pre><code>  ------/test  #放测试程序代码和文件的（可以没有）
+   ----------/java       #测试程序包和包中的java文件
+    ----------/resources  #测试java程序中要使用的配置文件
+</code></pre>
+<p>​      —/pom.xml  #maven的核心文件（maven项目必须有）</p>
+<h3 id="2-疑问：-mvn-compile-编译src-main目录下的所有java文件的。"><a href="#2-疑问：-mvn-compile-编译src-main目录下的所有java文件的。" class="headerlink" title="2.疑问： mvn compile 编译src/main目录下的所有java文件的。"></a>2.疑问： mvn compile 编译src/main目录下的所有java文件的。</h3><p>   1）为什么要下载<br>       maven工具执行的操作需要很多插件（java类–jar文件）完成的<br>    2）下载什么东西了<br>        jar文件–叫做插件–插件是完成某些功能</p>
+<p>​    3）下载的东西存放到哪里了。<br>            默认仓库（本机仓库）：<br>           C:\Users\（登录操作系统的用户名）Administrator.m2\repository</p>
+<p>Downloading: <a target="_blank" rel="noopener" href="https://repo.maven.apache.org/maven2/org/apache/maven/maven-plugin-parameter-documenter-2.0.9.pom">https://repo.maven.apache.org/maven2/org/apache/maven/maven-plugin-parameter-documenter-2.0.9.pom</a></p>
+<p>   <a target="_blank" rel="noopener" href="https://repo.maven.apache.org/">https://repo.maven.apache.org</a> ：中央仓库的地址</p>
+<p>执行mvn compile， 结果是在项目的根目录下生成target目录（结果目录），<br>maven编译的java程序，最后的class文件都放在target目录中</p>
+<p>设置本机存放资源的目录位置(设置本机仓库)：</p>
+<ol>
+<li><p>修改maven的配置文件， maven安装目录/conf/settings.xml<br>先备份 settings.xml</p>
+</li>
+<li><p>修改 <localRepository>  指定你的目录（不要使用中文目录）</p>
+</li>
+</ol>
+<p> D:\work\maven_work\maven_repository</p>
+<h3 id="3-仓库"><a href="#3-仓库" class="headerlink" title="3.仓库"></a>3.仓库</h3><p>  1）仓库是什么： 仓库是存放东西的， 存放maven使用的jar 和 我们项目使用的jar<br>     &gt; maven使用的插件（各种jar）<br>      &gt; 我项目使用的jar(第三方的工具)</p>
+<p>  2）仓库的分类<br>     &gt;本地仓库， 就是你的个人计算机上的文件夹，存放各种jar<br>      &gt;远程仓库， 在互联网上的，使用网络才能使用的仓库<br>          ①：中央仓库，最权威的， 所有的开发人员都共享使用的一个集中的仓库，<br>                  <a target="_blank" rel="noopener" href="https://repo.maven.apache.org/">https://repo.maven.apache.org</a> ：中央仓库的地址<br>            ②：中央仓库的镜像：就是中央仓库的备份， 在各大洲，重要的城市都是镜像。</p>
+<p>​            ③：私服，在公司内部，在局域网中使用的， 不是对外使用的。</p>
+<p>  3）仓库的使用，maven仓库的使用不需要人为参与。<br>           开发人员需要使用mysql驱动—&gt;maven首先查本地仓库—&gt;私服—&gt;镜像—&gt;中央仓库</p>
+<h3 id="4-pom-项目对象模型，是一个pom-xml文件"><a href="#4-pom-项目对象模型，是一个pom-xml文件" class="headerlink" title="4.pom:项目对象模型，是一个pom.xml文件"></a>4.pom:项目对象模型，是一个pom.xml文件</h3><p>​    1）坐标：唯一值， 在互联网中唯一标识一个项目的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;groupId&gt;公司域名的倒写&lt;/groupId&gt;</span><br><span class="line">&lt;artifactId&gt;自定义项目名称&lt;/artifactId&gt;</span><br><span class="line">&lt;version&gt;自定版本号&lt;/version&gt;</span><br></pre></td></tr></table></figure>
+
+<p>   <a target="_blank" rel="noopener" href="https://mvnrepository.com/">https://mvnrepository.com/</a> 搜索使用的中央仓库， 使用groupId 或者 artifactId作为搜索条件</p>
+<p>  2） packaging： 打包后压缩文件的扩展名，默认是jar ，web应用是war<br>      packaging 可以不写， 默认是jar</p>
+<ol start="3">
+<li>依赖<br>dependencies 和dependency ，相当于是 java代码中import</li>
+</ol>
+<p>​     你的项目中要使用的各种资源说明， 比我的项目要使用mysql驱动</p>
+<pre><code> &lt;dependencies&gt;
+    &lt;!--依赖  java代码中 import --&gt;
+  &lt;dependency&gt;
+    &lt;groupId&gt;mysql&lt;/groupId&gt;
+    &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+    &lt;version&gt;5.1.9&lt;/version&gt;
+ &lt;/dependency&gt;
+ &lt;/dependencies&gt;
+</code></pre>
+<p>  4）properties：设置属性</p>
+<p>  5）build ： maven在进行项目的构建时， 配置信息，例如指定编译java代码使用的jdk的版本等</p>
+<h3 id="5-maven生命周期，-maven的命令，maven的插件"><a href="#5-maven生命周期，-maven的命令，maven的插件" class="headerlink" title="5.maven生命周期， maven的命令，maven的插件"></a>5.maven生命周期， maven的命令，maven的插件</h3><p>​    maven的生命周期：就是maven构建项目的过程，清理，编译，测试，报告，打包，安装，部署<br>​     maven的命令：maven独立使用，通过命令，完成maven的生命周期的执行。<br>​                  maven可以使用命令，完成项目的清理，编译，测试等等</p>
+<p>​     maven的插件： maven命令执行时，真正完成功能的是插件，插件就是一些jar文件， 一些类。</p>
+<p>   1）单元测试（测试方法）：用的是junit， junit是一个专门测试的框架（工具）。<br>       junit测试的内容： 测试的是类中的方法， 每一个方法都是独立测试的。<br>                           方法是测试的基本单位（单元）。</p>
+<p>​          maven借助单元测试，批量的测试你类中的大量方法是否符合预期的。</p>
+<p>  2）使用步骤<br>     1.加入依赖，在pom.xml加入单元测试依赖</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 单元测试 --&gt;</span><br><span class="line">		 &lt;dependency&gt;</span><br><span class="line">			&lt;groupId&gt;junit&lt;/groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;junit&lt;/artifactId&gt;</span><br><span class="line">			&lt;version&gt;4.11&lt;/version&gt;</span><br><span class="line">			&lt;scope&gt;test&lt;/scope&gt;</span><br><span class="line">		 &lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<p> 2.在maven项目中的src/test/java目录下，创建测试程序。<br>    推荐的创建类和方法的提示：<br>     1.测试类的名称 是Test + 你要测试的类名<br>     2.测试的方法名称 是：Test + 方法名称</p>
+<p>例如你要测试HelloMaven ,<br> 创建测试类 TestHelloMaven</p>
+<p>   @Test<br>     public void testAdd(){<br>      测试HelloMaven的add方法是否正确<br>     }</p>
+<p>其中testAdd叫做测试方法，它的定义规则<br> 1.方法是public的，必须的<br> 2.方法没有返回值， 必须的<br> 3.方法名称是自定义的，推荐是Test + 方法名称<br> 4.在方法的上面加入 @Test</p>
+<p>​    </p>
+<p> 3)mvn compile<br>   编译main/java/目录下的java 为class文件， 同时把class拷贝到 target/classes目录下面<br>    把main/resources目录下的所有文件 都拷贝到target/classes目录下</p>
+<img src="/2022/08/06/Maven/Maven%E7%AC%94%E8%AE%B0/Maven%E7%AC%94%E8%AE%B0/image-20220807175631731.png" class="" title="image-20220807175631731">
+
+<h2 id="第三部分"><a href="#第三部分" class="headerlink" title="第三部分"></a>第三部分</h2><h3 id="1-在idea中设置maven-，让idea和maven结合使用。"><a href="#1-在idea中设置maven-，让idea和maven结合使用。" class="headerlink" title="1.在idea中设置maven ，让idea和maven结合使用。"></a>1.在idea中设置maven ，让idea和maven结合使用。</h3><p>   idea中内置了maven ，一般不使用内置的， 因为用内置修改maven的设置不方便。<br>    使用自己安装的maven， 需要覆盖idea中的默认的设置。让idea指定maven安装位置等信息</p>
+<p>配置的入口 ①：配置当前工程的设置， file–settings —Build, Excution,Deployment–Build Tools<br>               –Maven<br>                       Maven Home directory: maven的安装目录<br>                        User Settings File :  就是maven安装目录conf/setting.xml配置文件<br>                        Local Repository :    本机仓库的目录位置</p>
+<p>​                                    –Build Tools–Maven–Runner<br>​                                              VM Options : archetypeCatalog=internal<br>​                                              JRE: 你项目的jdk</p>
+<p>​                                        archetypeCatalog=internal , maven项目创建时，会联网下载模版文件，比较大， 使用-DarchetypeCatalog=internal，不用下载， 创建maven项目速度快。</p>
+<p>​                        ②：配置以后新建工程的设置， file–other settings–Settings for New Project</p>
+<h3 id="2-使用模版创建项目"><a href="#2-使用模版创建项目" class="headerlink" title="2.使用模版创建项目"></a>2.使用模版创建项目</h3><p>  1）maven-archetype-quickstart : 普通的java项目<br>  2）maven-archetype-webapp : web工程</p>
+<h2 id="第四部分"><a href="#第四部分" class="headerlink" title="第四部分"></a>第四部分</h2><h3 id="1依赖范围，-使用scope表示的。"><a href="#1依赖范围，-使用scope表示的。" class="headerlink" title="1依赖范围， 使用scope表示的。"></a>1依赖范围， 使用scope表示的。</h3><p>   scope的值有 compile, test, provided ,默认是compile<br>    scope:表示依赖使用的范围，也就是在maven构建项目的那些阶段中起作用。<br>        maven构建项目  编译， 测试 ，打包， 安装 ，部署 过程（阶段）</p>
+<p>   junit的依赖范围是 test</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">     &lt;groupId&gt;junit&lt;/groupId&gt;</span><br><span class="line">     &lt;artifactId&gt;junit&lt;/artifactId&gt;</span><br><span class="line">     &lt;version&gt;4.11&lt;/version&gt;</span><br><span class="line">     &lt;scope&gt;test&lt;/scope&gt;</span><br><span class="line">   &lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;dependency&gt;
+  &lt;groupId&gt;a&lt;/groupId&gt;
+  &lt;artifactId&gt;b&lt;/artifactId&gt;   b.jar
+  &lt;version&gt;4.11&lt;/version&gt;
+&lt;/dependency&gt;
+
+
+ &lt;dependency&gt;
+  &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+  &lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;
+  &lt;version&gt;3.1.0&lt;/version&gt;          servlet.jar
+  &lt;scope&gt;provided&lt;/scope&gt; 提供者
+&lt;/dependency&gt;
+</code></pre>
+<p>   你在写项目的中的用到的所有依赖（jar ） ，必须在本地仓库中有。<br>​    没有必须通过maven下载， 包括provided的都必须下载。</p>
+<pre><code>你在servlet需要继承HttpServlet( provided) , 你使用的HttpServlet是maven仓库中的。
+
+当你的写好的程序， 放到 tomat服务器中运行时， 此时你的程序中不包含servlet的jar
+因为tomcat提供了 servlet的.jar
+</code></pre>
+<h2 id="第五部分"><a href="#第五部分" class="headerlink" title="第五部分"></a>第五部分</h2><p>  maven常用操作</p>
+<h3 id="1-maven的属性设置"><a href="#1-maven的属性设置" class="headerlink" title="1.maven的属性设置"></a>1.maven的属性设置</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;properties&gt; 设置maven的常用属性</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-maven的全局变量"><a href="#2-maven的全局变量" class="headerlink" title="2.maven的全局变量"></a>2.maven的全局变量</h3><p>​     自定义的属性，1.在properties通过自定义标签声明变量（标签名就是变量名）<br>​                     2.在pom.xml文件中的其它位置，使用 ${标签名} 使用变量的值</p>
+<pre><code>自定义全局变量一般是定义 依赖的版本号， 当你的项目中要使用多个相同的版本号，
+先使用全局变量定义， 在使用$&#123;变量名&#125;
+</code></pre>
+<img src="/2022/08/06/Maven/Maven%E7%AC%94%E8%AE%B0/Maven%E7%AC%94%E8%AE%B0/image-20220808111108740.png" class="" title="image-20220808111108740">
+
+
+
+<img src="/2022/08/06/Maven/Maven%E7%AC%94%E8%AE%B0/Maven%E7%AC%94%E8%AE%B0/image-20220808111133319.png" class="" title="image-20220808111133319">
+
+<h3 id="3-资源插件"><a href="#3-资源插件" class="headerlink" title="3.资源插件"></a>3.资源插件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"> &lt;build&gt;</span><br><span class="line">&lt;resources&gt;</span><br><span class="line">&lt;resource&gt;</span><br><span class="line">&lt;directory&gt;src/main/java&lt;/directory&gt;&lt;!--所在的目录--&gt;</span><br><span class="line">&lt;includes&gt;&lt;!--包括目录下的.properties,.xml 文件都会扫描到--&gt;</span><br><span class="line">&lt;include&gt;**/*.properties&lt;/include&gt;</span><br><span class="line">&lt;include&gt;**/*.xml&lt;/include&gt;</span><br><span class="line">&lt;/includes&gt;</span><br><span class="line">&lt;!—filtering 选项 false 不启用过滤器， *.property 已经起到过滤的作用了 --&gt;</span><br><span class="line">&lt;filtering&gt;false&lt;/filtering&gt;</span><br><span class="line">&lt;/resource&gt;</span><br><span class="line">&lt;/resources&gt;</span><br><span class="line"> &lt;/build&gt;</span><br></pre></td></tr></table></figure>
+
+<p>  作用： mybatis课程中会用到这个作用</p>
+<ol>
+<li><p>默认没有使用resources的时候， maven执行编译代码时， 会把src/main/resource目录中的文件拷贝到target/classes目录中。</p>
+</li>
+<li><p>我们的程序有需要把一些文件放在src/main/java目录中，当我在执行Java程序时，需要用到src/main/java目录中的文件。</p>
+<p>需要告诉maven在mvn compile src/main/java目录下的程序时，需要把文件一同拷贝到target/classes目录中。</p>
+<p>此时就需要在</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;build&gt;中加入&lt;resources&gt;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="六思维导图"><a href="#六思维导图" class="headerlink" title="六思维导图"></a>六思维导图</h2><img src="/2022/08/06/Maven/Maven%E7%AC%94%E8%AE%B0/Maven%E7%AC%94%E8%AE%B0/image-20220808175247328.png" class="" title="image-20220808175247328">
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>你可以对我打赏了哦</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/Wechat.jpg" alt="Zidian Wei 微信">
+        <span>微信</span>
+      </div>
+
+  </div>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/06/10/Ajax/Ajax-code/Ajax-code/" rel="prev" title="Ajax-code">
+                  <i class="fa fa-chevron-left"></i> Ajax-code
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/08/11/Mybatis/Mybatis-code/Mybatis-code/" rel="next" title="Mybatis-code">
+                  Mybatis-code <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zidian Wei</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/haruto.model.json"},"display":{"position":"right","hOffset":0,"vOffset":-20,"width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.6},"log":false});</script></body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>
