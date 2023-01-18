@@ -162,7 +162,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-count">60</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -208,92 +208,6 @@
 
 
     <div class="main-inner index posts-expand">
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://aiden-a.gitee.io/2022/05/03/javascript/DOM6-%E5%A4%8D%E9%80%89%E6%A1%86%E7%9A%84%E5%85%A8%E9%80%89%E5%92%8C%E5%8F%96%E6%B6%88%E5%85%A8%E9%80%89/DOM6-%E5%A4%8D%E9%80%89%E6%A1%86%E7%9A%84%E5%85%A8%E9%80%89%E5%92%8C%E5%8F%96%E6%B6%88%E5%85%A8%E9%80%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/./images/header.jpg">
-      <meta itemprop="name" content="Zidian Wei">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aiden's Secret Base">
-      <meta itemprop="description" content="勇敢做自己">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Aiden's Secret Base">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/05/03/javascript/DOM6-%E5%A4%8D%E9%80%89%E6%A1%86%E7%9A%84%E5%85%A8%E9%80%89%E5%92%8C%E5%8F%96%E6%B6%88%E5%85%A8%E9%80%89/DOM6-%E5%A4%8D%E9%80%89%E6%A1%86%E7%9A%84%E5%85%A8%E9%80%89%E5%92%8C%E5%8F%96%E6%B6%88%E5%85%A8%E9%80%89/" class="post-title-link" itemprop="url">DOM6-复选框的全选和取消全选</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-05-03 17:42:07" itemprop="dateCreated datePublished" datetime="2022-05-03T17:42:07+08:00">2022-05-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-05-09 12:18:50" itemprop="dateModified" datetime="2022-05-09T12:18:50+08:00">2022-05-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/javascript/" itemprop="url" rel="index"><span itemprop="name">javascript</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="comment">//     window.onload=function ()&#123;</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">//     var firstChk=document.getElementById(&quot;firstChk&quot;);</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">//</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">//     firstChk.onclick=function ()&#123;</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">//         var aihaos=document.getElementsByName(&quot;aihao&quot;);</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">//         if(firstChk.checked)</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">//         &#123;</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">//             for(var i=0;i&lt;aihaos.length;i++)</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">//             &#123;</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">//                 aihaos[i].checked=true;</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">//             &#125;</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">//         &#125;else</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">//         &#123;</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">//             for(var i=0;i&lt;aihaos.length;i++)</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">//             &#123;</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">//                 aihaos[i].checked=false;</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">//             &#125;</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">//         &#125;</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">//     &#125;</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// &#125;</span></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="built_in">window</span>.onload=<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> firstChk = <span class="built_in">document</span>.getElementById(<span class="string">&quot;firstChk&quot;</span>);</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> aihaos = <span class="built_in">document</span>.getElementsByName(<span class="string">&quot;aihao&quot;</span>);</span></span><br><span class="line"><span class="javascript">        firstChk.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; aihaos.length; i++) &#123;</span></span><br><span class="line"><span class="javascript">                aihaos[i].checked = firstChk.checked;</span></span><br><span class="line"><span class="javascript">            &#125;</span></span><br><span class="line"><span class="javascript">        &#125;</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> all = aihaos.length;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;aihaos.length;i++)&#123;</span></span><br><span class="line"><span class="javascript">            aihaos[i].onclick=<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">                <span class="keyword">var</span> checkedCount=<span class="number">0</span>;</span></span><br><span class="line"><span class="javascript">                <span class="comment">//总数和选中的数量相等时，第一个复选框被选中</span></span></span><br><span class="line"><span class="javascript">                <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;aihaos.length;i++)</span></span><br><span class="line"><span class="javascript">                &#123;</span></span><br><span class="line"><span class="javascript">                    <span class="keyword">if</span>(aihaos[i].checked)</span></span><br><span class="line"><span class="javascript">                        checkedCount++;</span></span><br><span class="line"><span class="javascript">                &#125;</span></span><br><span class="line"><span class="javascript">                <span class="comment">//精炼！！！</span></span></span><br><span class="line"><span class="javascript">                firstChk.checked=(checkedCount==all);</span></span><br><span class="line"><span class="javascript">                <span class="comment">// if(checkedCount==all)&#123;</span></span></span><br><span class="line"><span class="javascript">                <span class="comment">//     firstChk.checked=true;</span></span></span><br><span class="line"><span class="javascript">                <span class="comment">// &#125;else&#123;</span></span></span><br><span class="line"><span class="javascript">                <span class="comment">//     firstChk.checked=false;</span></span></span><br><span class="line"><span class="javascript">                <span class="comment">// &#125;</span></span></span><br><span class="line"><span class="javascript">            &#125;</span></span><br><span class="line"><span class="javascript">        &#125;</span></span><br><span class="line"><span class="javascript">    &#125;</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">id</span>=<span class="string">&quot;firstChk&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">Br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">name</span>=<span class="string">&quot;aihao&quot;</span> <span class="attr">value</span>=<span class="string">&quot;smoke&quot;</span>&gt;</span>抽烟<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">name</span>=<span class="string">&quot;aihao&quot;</span> <span class="attr">value</span>=<span class="string">&quot;drink&quot;</span>&gt;</span>喝酒<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">name</span>=<span class="string">&quot;aihao&quot;</span> <span class="attr">value</span>=<span class="string">&quot;tt&quot;</span>&gt;</span>烫头<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
 
     
 
@@ -1047,8 +961,79 @@
 
 
 
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://aiden-a.gitee.io/2022/04/27/Mysql/PrepareStatement%E5%AE%8C%E6%88%90%E5%A2%9E%E5%88%A0%E6%94%B9/PrepareStatement%E5%AE%8C%E6%88%90%E5%A2%9E%E5%88%A0%E6%94%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/./images/header.jpg">
+      <meta itemprop="name" content="Zidian Wei">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aiden's Secret Base">
+      <meta itemprop="description" content="勇敢做自己">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Aiden's Secret Base">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/27/Mysql/PrepareStatement%E5%AE%8C%E6%88%90%E5%A2%9E%E5%88%A0%E6%94%B9/PrepareStatement%E5%AE%8C%E6%88%90%E5%A2%9E%E5%88%A0%E6%94%B9/" class="post-title-link" itemprop="url">PrepareStatement完成增删改</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-04-27 16:04:00 / 修改时间：16:04:47" itemprop="dateCreated datePublished" datetime="2022-04-27T16:04:00+08:00">2022-04-27</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.sql.Connection;</span><br><span class="line"><span class="keyword">import</span> java.sql.DriverManager;</span><br><span class="line"><span class="keyword">import</span> java.sql.PreparedStatement;</span><br><span class="line"><span class="keyword">import</span> java.sql.SQLException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JDBCTest09</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Connection conn=<span class="keyword">null</span>;</span><br><span class="line">        PreparedStatement ps=<span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">                Class.forName(<span class="string">&quot;com.mysql.cj.jdbc.Driver&quot;</span>);</span><br><span class="line">                conn= DriverManager.getConnection(<span class="string">&quot;jdbc:mysql://localhost:3306/westos?&amp;serverTimezone=GMT%2B8&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false&quot;</span>,<span class="string">&quot;root&quot;</span>,<span class="string">&quot;123&quot;</span>);</span><br><span class="line">                String sql=<span class="string">&quot;insert into t_user(id,loginName,loginPwd,realName)values(?,?,?,?)&quot;</span>;</span><br><span class="line"><span class="comment">//              String sql=&quot;upedat t_user set loginPwd=?,realname-? where id=?&quot;;</span></span><br><span class="line"><span class="comment">//              String sql=&quot;delete form t_user where id =?&quot;;</span></span><br><span class="line">                ps=conn.prepareStatement(sql);</span><br><span class="line">                ps.setInt(<span class="number">1</span>,<span class="number">3</span>);</span><br><span class="line">                ps.setString(<span class="number">2</span>,<span class="string">&quot;wzd&quot;</span>);</span><br><span class="line">                ps.setString(<span class="number">3</span>,<span class="string">&quot;123&quot;</span>);</span><br><span class="line">                ps.setString(<span class="number">4</span>,<span class="string">&quot;Zidian Wei&quot;</span>);</span><br><span class="line"></span><br><span class="line">                <span class="keyword">int</span> count=ps.executeUpdate();</span><br><span class="line">                System.out.println(count);</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">if</span>(ps!=<span class="keyword">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    ps.close();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(conn!=<span class="keyword">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    conn.close();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 </div>
