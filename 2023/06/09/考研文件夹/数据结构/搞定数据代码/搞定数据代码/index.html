@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+
+
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"aiden-a.gitee.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+
+    <meta name="description" content="线性表顺序表顺序表的结构体定义及初始化12345678910111213141516171819202122232425262728293031323334353637383940414243&#x2F;&#x2F;静态顺序表#define MaxSize 10typedef struct&amp;#123;    int data[MaxSize];    int length;&amp;#125;SqList;&#x2F;&#x2F;初始化一个静态">
+<meta property="og:type" content="article">
+<meta property="og:title" content="搞定数据代码">
+<meta property="og:url" content="https://aiden-a.gitee.io/2023/06/09/%E8%80%83%E7%A0%94%E6%96%87%E4%BB%B6%E5%A4%B9/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%90%9E%E5%AE%9A%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%A0%81/%E6%90%9E%E5%AE%9A%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%A0%81/index.html">
+<meta property="og:site_name" content="Aiden&#39;s Secret Base">
+<meta property="og:description" content="线性表顺序表顺序表的结构体定义及初始化12345678910111213141516171819202122232425262728293031323334353637383940414243&#x2F;&#x2F;静态顺序表#define MaxSize 10typedef struct&amp;#123;    int data[MaxSize];    int length;&amp;#125;SqList;&#x2F;&#x2F;初始化一个静态">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://aiden-a.gitee.io/2023/06/09/%E8%80%83%E7%A0%94%E6%96%87%E4%BB%B6%E5%A4%B9/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%90%9E%E5%AE%9A%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%A0%81/%E6%90%9E%E5%AE%9A%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%A0%81/image-20230613203457829.png">
+<meta property="og:image" content="https://aiden-a.gitee.io/2023/06/09/%E8%80%83%E7%A0%94%E6%96%87%E4%BB%B6%E5%A4%B9/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%90%9E%E5%AE%9A%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%A0%81/%E6%90%9E%E5%AE%9A%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%A0%81/image-20230613210508093.png">
+<meta property="og:image" content="https://aiden-a.gitee.io/2023/06/09/%E8%80%83%E7%A0%94%E6%96%87%E4%BB%B6%E5%A4%B9/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%90%9E%E5%AE%9A%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%A0%81/%E6%90%9E%E5%AE%9A%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%A0%81/image-20230613212114257.png">
+<meta property="og:image" content="https://aiden-a.gitee.io/2023/06/09/%E8%80%83%E7%A0%94%E6%96%87%E4%BB%B6%E5%A4%B9/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%90%9E%E5%AE%9A%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%A0%81/%E6%90%9E%E5%AE%9A%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%A0%81/image-20230614205838689.png">
+<meta property="og:image" content="https://aiden-a.gitee.io/2023/06/09/%E8%80%83%E7%A0%94%E6%96%87%E4%BB%B6%E5%A4%B9/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%90%9E%E5%AE%9A%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%A0%81/%E6%90%9E%E5%AE%9A%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%A0%81/image-20230614211533484.png">
+<meta property="article:published_time" content="2023-06-09T13:32:47.000Z">
+<meta property="article:modified_time" content="2023-06-29T08:46:53.020Z">
+<meta property="article:author" content="Zidian Wei">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://aiden-a.gitee.io/2023/06/09/%E8%80%83%E7%A0%94%E6%96%87%E4%BB%B6%E5%A4%B9/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%90%9E%E5%AE%9A%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%A0%81/%E6%90%9E%E5%AE%9A%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%A0%81/image-20230613203457829.png">
+
+
+<link rel="canonical" href="https://aiden-a.gitee.io/2023/06/09/%E8%80%83%E7%A0%94%E6%96%87%E4%BB%B6%E5%A4%B9/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%90%9E%E5%AE%9A%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%A0%81/%E6%90%9E%E5%AE%9A%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%A0%81/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://aiden-a.gitee.io/2023/06/09/%E8%80%83%E7%A0%94%E6%96%87%E4%BB%B6%E5%A4%B9/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%90%9E%E5%AE%9A%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%A0%81/%E6%90%9E%E5%AE%9A%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%A0%81/","path":"2023/06/09/考研文件夹/数据结构/搞定数据代码/搞定数据代码/","title":"搞定数据代码"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>搞定数据代码 | Aiden's Secret Base</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+
+
+<link rel="alternate" href="/atom.xml" title="Aiden's Secret Base" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+
+<div class="headband"></div>
+<a target="_blank" rel="noopener" href="https://github.com/hopegogogo1" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Aiden's Secret Base</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1456445892&auto=1&height=66"></iframe>
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E8%A1%A8"><span class="nav-number">1.</span> <span class="nav-text">线性表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%BA%E5%BA%8F%E8%A1%A8"><span class="nav-number">1.1.</span> <span class="nav-text">顺序表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%BA%E5%BA%8F%E8%A1%A8%E7%9A%84%E7%BB%93%E6%9E%84%E4%BD%93%E5%AE%9A%E4%B9%89%E5%8F%8A%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">1.1.1.</span> <span class="nav-text">顺序表的结构体定义及初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%BA%E5%BA%8F%E8%A1%A8%E7%9A%84%E9%81%8D%E5%8E%86%E5%8F%8A%E8%BE%93%E5%87%BA"><span class="nav-number">1.1.2.</span> <span class="nav-text">顺序表的遍历及输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E6%89%BE%E9%A1%BA%E5%BA%8F%E8%A1%A8%E4%B8%AD%E5%80%BC%E4%B8%BAe%E7%9A%84%E6%95%B0%E6%8D%AE%E5%85%83%E7%B4%A0%E6%89%80%E5%9C%A8%E4%BD%8D%E7%BD%AE"><span class="nav-number">1.1.3.</span> <span class="nav-text">查找顺序表中值为e的数据元素所在位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E6%89%BE%E9%A1%BA%E5%BA%8F%E8%A1%A8%E4%B8%AD%E7%AC%ACi%E4%B8%AA%E4%BD%8D%E7%BD%AE%E7%9A%84%E6%95%B0%E6%8D%AE%E5%85%83%E7%B4%A0%E5%80%BC"><span class="nav-number">1.1.4.</span> <span class="nav-text">查找顺序表中第i个位置的数据元素值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%BA%E5%BA%8F%E8%A1%A8%E7%9A%84%E9%80%86%E7%BD%AE"><span class="nav-number">1.1.5.</span> <span class="nav-text">顺序表的逆置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%BA%E5%BA%8F%E8%A1%A8%E4%B8%AD%E7%AC%ACi%E4%B8%AA%E4%BD%8D%E7%BD%AE%E6%8F%92%E5%85%A5%E5%85%83%E7%B4%A0e"><span class="nav-number">1.1.6.</span> <span class="nav-text">顺序表中第i个位置插入元素e</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%89%E5%BA%8F%E9%A1%BA%E5%BA%8F%E8%A1%A8%E6%8F%92%E5%85%A5%E5%85%83%E7%B4%A0x%E5%90%8E%E4%BE%9D%E7%84%B6%E6%9C%89%E5%BA%8F"><span class="nav-number">1.1.7.</span> <span class="nav-text">有序顺序表插入元素x后依然有序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%BA%E5%BA%8F%E8%A1%A8%E4%B8%AD%E5%88%A0%E9%99%A4%E7%AC%ACi%E4%B8%AA%E4%BD%8D%E7%BD%AE%E7%9A%84%E5%85%83%E7%B4%A0"><span class="nav-number">1.1.8.</span> <span class="nav-text">顺序表中删除第i个位置的元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%BA%E5%BA%8F%E8%A1%A8%E4%B8%AD%E5%88%A0%E9%99%A4%E6%9C%80%E5%B0%8F%E5%80%BC"><span class="nav-number">1.1.9.</span> <span class="nav-text">顺序表中删除最小值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%BA%E5%BA%8F%E8%A1%A8%E5%88%A0%E9%99%A4%E6%89%80%E6%9C%89%E5%80%BC%E4%B8%BAx%E7%9A%84%E5%85%83%E7%B4%A0"><span class="nav-number">1.1.10.</span> <span class="nav-text">顺序表删除所有值为x的元素</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80"><span class="nav-number">1.1.10.1.</span> <span class="nav-text">方法一</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C"><span class="nav-number">1.1.10.2.</span> <span class="nav-text">方法二</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%BA%E5%BA%8F%E8%A1%A8%E5%88%A0%E9%99%A4%E6%89%80%E6%9C%89%E5%80%BC%E5%9C%A8s%E4%B8%8Et%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%83%E7%B4%A0"><span class="nav-number">1.1.11.</span> <span class="nav-text">顺序表删除所有值在s与t之间的元素</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80-1"><span class="nav-number">1.1.11.1.</span> <span class="nav-text">方法一</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C-1"><span class="nav-number">1.1.11.2.</span> <span class="nav-text">方法二</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%89%E5%BA%8F%E9%A1%BA%E5%BA%8F%E8%A1%A8%E4%B8%AD%E5%88%A0%E9%99%A4%E6%89%80%E6%9C%89%E9%87%8D%E5%A4%8D%E7%9A%84%E5%85%83%E7%B4%A0"><span class="nav-number">1.1.12.</span> <span class="nav-text">有序顺序表中删除所有重复的元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%89%E5%BA%8F%E9%A1%BA%E5%BA%8F%E8%A1%A8%E5%88%A0%E9%99%A4%E6%89%80%E6%9C%89%E5%80%BC%E5%9C%A8s%E4%B8%8Et%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%83%E7%B4%A0"><span class="nav-number">1.1.13.</span> <span class="nav-text">有序顺序表删除所有值在s与t之间的元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%A1%BA%E5%BA%8F%E8%A1%A8%E5%90%88%E5%B9%B6%E6%88%90%E4%B8%BA%E4%B8%80%E4%B8%AA%E6%96%B0%E7%9A%84%E9%A1%BA%E5%BA%8F%E8%A1%A8C"><span class="nav-number">1.1.14.</span> <span class="nav-text">两个有序顺序表合并成为一个新的顺序表C</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%93%BE%E8%A1%A8"><span class="nav-number">1.2.</span> <span class="nav-text">链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E9%93%BE%E8%A1%A8%E7%9A%84%E7%BB%93%E6%9E%84%E4%BD%93%E5%AE%9A%E4%B9%89"><span class="nav-number">1.2.1.</span> <span class="nav-text">单链表的结构体定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E9%93%BE%E8%A1%A8%E7%9A%84%E9%81%8D%E5%8E%86%E8%BE%93%E5%87%BA%EF%BC%88%E5%B8%A6%E5%A4%B4%E8%8A%82%E7%82%B9"><span class="nav-number">1.2.2.</span> <span class="nav-text">单链表的遍历输出（带头节点)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%A6%E5%A4%B4%E7%BB%93%E7%82%B9%E7%9A%84%E6%8C%89%E4%BD%8D%E6%9F%A5%E6%89%BE%E5%92%8C%E6%8C%89%E5%80%BC%E6%9F%A5%E6%89%BE"><span class="nav-number">1.2.3.</span> <span class="nav-text">带头结点的按位查找和按值查找</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%95%E9%93%BE%E8%A1%A8%E7%9A%84%E6%8C%89%E4%BD%8D%E6%9F%A5%E6%89%BE"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">单链表的按位查找</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%95%E9%93%BE%E8%A1%A8%E7%9A%84%E6%8C%89%E5%80%BC%E6%9F%A5%E6%89%BE"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">单链表的按值查找</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%B4%E6%8F%92%E6%B3%95%E5%BB%BA%E7%AB%8B%E5%8D%95%E9%93%BE%E8%A1%A8"><span class="nav-number">1.2.4.</span> <span class="nav-text">头插法建立单链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%BE%E6%8F%92%E6%B3%95%E5%BB%BA%E7%AB%8B%E5%8D%95%E9%93%BE%E8%A1%A8"><span class="nav-number">1.2.5.</span> <span class="nav-text">尾插法建立单链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E9%93%BE%E8%A1%A8%E7%9A%84%E5%B0%B1%E5%9C%B0%E9%80%86%E7%BD%AE"><span class="nav-number">1.2.6.</span> <span class="nav-text">单链表的就地逆置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%86%E4%B8%80%E4%B8%AA%E5%8D%95%E9%93%BE%E8%A1%A8%E5%88%86%E8%A7%A3%E6%88%90%E4%B8%A4%E4%B8%AA%E5%8D%95%E9%93%BE%E8%A1%A8%E4%B8%94%E7%9B%B8%E5%AF%B9%E9%A1%BA%E5%BA%8F%E4%B8%8D%E5%8F%98"><span class="nav-number">1.2.7.</span> <span class="nav-text">将一个单链表分解成两个单链表且相对顺序不变</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zidian Wei"
+      src="/./images/header.jpg">
+  <p class="site-author-name" itemprop="name">Zidian Wei</p>
+  <div class="site-description" itemprop="description">勇敢做自己</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">66</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/hopegogogo1" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;hopegogogo1" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://aiden-a.gitee.io/2023/06/09/%E8%80%83%E7%A0%94%E6%96%87%E4%BB%B6%E5%A4%B9/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%90%9E%E5%AE%9A%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%A0%81/%E6%90%9E%E5%AE%9A%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%A0%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/./images/header.jpg">
+      <meta itemprop="name" content="Zidian Wei">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aiden's Secret Base">
+      <meta itemprop="description" content="勇敢做自己">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="搞定数据代码 | Aiden's Secret Base">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          搞定数据代码
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-06-09 21:32:47" itemprop="dateCreated datePublished" datetime="2023-06-09T21:32:47+08:00">2023-06-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-06-29 16:46:53" itemprop="dateModified" datetime="2023-06-29T16:46:53+08:00">2023-06-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="线性表"><a href="#线性表" class="headerlink" title="线性表"></a>线性表</h1><h2 id="顺序表"><a href="#顺序表" class="headerlink" title="顺序表"></a>顺序表</h2><h3 id="顺序表的结构体定义及初始化"><a href="#顺序表的结构体定义及初始化" class="headerlink" title="顺序表的结构体定义及初始化"></a>顺序表的结构体定义及初始化</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//静态顺序表</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MaxSize 10</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> data[MaxSize];</span><br><span class="line">    <span class="keyword">int</span> length;</span><br><span class="line">&#125;SqList;</span><br><span class="line"></span><br><span class="line"><span class="comment">//初始化一个静态顺序表</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InitList</span><span class="params">(SqList &amp;L)</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;MaxSize;i++)&#123;</span><br><span class="line">        L.data[i]=<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    L.length=<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line"><span class="comment">//动态顺序表    </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> InitSize 10</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> *data;</span><br><span class="line">    <span class="keyword">int</span> MaxSize;<span class="comment">//顺序表最大容量</span></span><br><span class="line">    <span class="keyword">int</span> length;<span class="comment">//顺序表当前长度</span></span><br><span class="line">&#125;SeqList;</span><br><span class="line"></span><br><span class="line"><span class="comment">//初始化一个动态顺序表</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InitList</span><span class="params">(SeqList &amp;L)</span></span>&#123;</span><br><span class="line">    L.data=(<span class="keyword">int</span> *)<span class="built_in">malloc</span>(InitSize*<span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line">    L.length=<span class="number">0</span>;</span><br><span class="line">  	L.MaxSize=InitSize;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//增加动态数组的长度</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">IncreaseSize</span><span class="params">(SeqList &amp;L,<span class="keyword">int</span> len)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> *p=L.data;</span><br><span class="line">    L.data=(<span class="keyword">int</span> *)<span class="built_in">malloc</span>((InitSize+len)*<span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line">    <span class="comment">//将数据复制到新区域</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;L.length;i++)&#123;</span><br><span class="line">        L.data[i]=p[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//顺序表最大长度增加len</span></span><br><span class="line">    L.MaxSize=L.MaxSize+len;</span><br><span class="line">    <span class="built_in">free</span>(p);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="顺序表的遍历及输出"><a href="#顺序表的遍历及输出" class="headerlink" title="顺序表的遍历及输出"></a>顺序表的遍历及输出</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//顺序表的遍历及输出</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ListVisit</span><span class="params">(SqList L)</span></span>&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">0</span>;k&lt;L.length;k++)&#123;</span><br><span class="line">			<span class="built_in">pring</span>(<span class="string">&quot;%d&quot;</span>,L.data[k])</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="查找顺序表中值为e的数据元素所在位置"><a href="#查找顺序表中值为e的数据元素所在位置" class="headerlink" title="查找顺序表中值为e的数据元素所在位置"></a>查找顺序表中值为e的数据元素所在位置</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//查找顺序表中值为e的数据元素所在位置</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Search_e</span><span class="params">(SqList L, <span class="keyword">int</span> e)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; L.length; k++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (L.data[k] == e) &#123;</span><br><span class="line">            <span class="keyword">return</span> k;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="查找顺序表中第i个位置的数据元素值"><a href="#查找顺序表中第i个位置的数据元素值" class="headerlink" title="查找顺序表中第i个位置的数据元素值"></a>查找顺序表中第i个位置的数据元素值</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//查找顺序表中第i个位置的数据元素值</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Get_i</span><span class="params">(SqList L, <span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (i &gt;= <span class="number">1</span> &amp;&amp; i &lt;= L.length) &#123;</span><br><span class="line">        <span class="keyword">return</span> L.data[i<span class="number">-1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="顺序表的逆置"><a href="#顺序表的逆置" class="headerlink" title="顺序表的逆置"></a>顺序表的逆置</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//顺序表的逆置</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Reverse</span><span class="params">(SqList &amp;L)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> temp;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; L.length / <span class="number">2</span>; i++) &#123;</span><br><span class="line">        temp = L.data[i];</span><br><span class="line">        L.data[i] = L.data[L.length - <span class="number">1</span> - i];</span><br><span class="line">        L.data[L.length - <span class="number">1</span> - i] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="顺序表中第i个位置插入元素e"><a href="#顺序表中第i个位置插入元素e" class="headerlink" title="顺序表中第i个位置插入元素e"></a>顺序表中第i个位置插入元素e</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//顺序表中第i个位置插入元素e</span></span><br><span class="line"><span class="comment">//因为线性表长为 L.length 删除只能删除1到L.length上的东西</span></span><br><span class="line"><span class="comment">//插入可以插入第一个位置，也可以插入最后一个的后面所以是1~Llength+1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//顺序表中第i个位置插入元素e</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">ListInsert</span><span class="params">(SqList &amp;L, <span class="keyword">int</span> i, <span class="keyword">int</span> e)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//判断i的范围是否有效</span></span><br><span class="line">    <span class="keyword">if</span> (i&lt;<span class="number">1</span> || i&gt;L.length + <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//当前存储空间已满，不能插入</span></span><br><span class="line">    <span class="keyword">if</span> (L.length &gt;= MaxSize) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//将i位置元素依次后移</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = L.length; j &gt;= i; j--) &#123;</span><br><span class="line">        L.data[j] = L.data[j - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//将e插入到i位置</span></span><br><span class="line">    L.data[i<span class="number">-1</span>] = e;</span><br><span class="line">    L.length += <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="有序顺序表插入元素x后依然有序"><a href="#有序顺序表插入元素x后依然有序" class="headerlink" title="有序顺序表插入元素x后依然有序"></a>有序顺序表插入元素x后依然有序</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//有序顺序表插入元素x后依然有序</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">ListInsert</span><span class="params">(SqList &amp;L, <span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; L.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (L.data[i] &gt; x) &#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = L.length; j &gt;= i + <span class="number">1</span>; j--) &#123;</span><br><span class="line">        L.data[j] = L.data[j - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    L.data[i] = x;</span><br><span class="line">    L.length++;</span><br><span class="line">    <span class="comment">//返回插入位置的下标</span></span><br><span class="line">    <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="顺序表中删除第i个位置的元素"><a href="#顺序表中删除第i个位置的元素" class="headerlink" title="顺序表中删除第i个位置的元素"></a>顺序表中删除第i个位置的元素</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//顺序表中删除第i个位置的元素</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">ListDelete</span><span class="params">(SqList&amp; L, <span class="keyword">int</span> i, <span class="keyword">int</span>&amp; e)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (i&lt;<span class="number">1</span> || i&gt;L.length) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    e = L.data[i - <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = i; j &lt; L.length; j++) &#123;</span><br><span class="line">        L.data[j - <span class="number">1</span>] = L.data[j];</span><br><span class="line">    &#125;</span><br><span class="line">    L.length--;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="顺序表中删除最小值"><a href="#顺序表中删除最小值" class="headerlink" title="顺序表中删除最小值"></a>顺序表中删除最小值</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//顺序表中删除最小值</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Del_Min</span><span class="params">(SqList&amp; L)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (L.length == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;<span class="comment">//顺序表为空返回-1</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> min = L.data[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">int</span> pos = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; L.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (L.data[i] &lt; min) &#123;</span><br><span class="line">            min = L.data[i];</span><br><span class="line">            pos = i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = pos; j &lt; L.length - <span class="number">1</span>;j++) &#123;</span><br><span class="line">        L.data[j] = L.data[j + <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    L.length--;</span><br><span class="line">    <span class="keyword">return</span> min;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="顺序表删除所有值为x的元素"><a href="#顺序表删除所有值为x的元素" class="headerlink" title="顺序表删除所有值为x的元素"></a>顺序表删除所有值为x的元素</h3><h4 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h4><img src="/2023/06/09/%E8%80%83%E7%A0%94%E6%96%87%E4%BB%B6%E5%A4%B9/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%90%9E%E5%AE%9A%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%A0%81/%E6%90%9E%E5%AE%9A%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%A0%81/image-20230613203457829.png" class="" title="image-20230613203457829">
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方法一</span></span><br><span class="line"><span class="comment">//每删除一个x元素，则该x后边的元素往前移动k+1个</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Del_x_1</span><span class="params">(SqList&amp; L, <span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> k = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; L.length; i++) &#123; </span><br><span class="line">        <span class="keyword">if</span> (L.data[i] ==x) &#123;</span><br><span class="line">            k = k + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            L.data[i - k] = L.data[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    L.length = L.length - k;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h4><img src="/2023/06/09/%E8%80%83%E7%A0%94%E6%96%87%E4%BB%B6%E5%A4%B9/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%90%9E%E5%AE%9A%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%A0%81/%E6%90%9E%E5%AE%9A%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%A0%81/image-20230613210508093.png" class="" title="image-20230613210508093">
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方法二</span></span><br><span class="line"><span class="comment">//双指针</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Del_x_2</span><span class="params">(SqList&amp; L, <span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; L.length; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span> (L.data[i]!=x) &#123;</span><br><span class="line">            L.data[j] = L.data[i];</span><br><span class="line">            j++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; </span><br><span class="line">    L.length = j;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="顺序表删除所有值在s与t之间的元素"><a href="#顺序表删除所有值在s与t之间的元素" class="headerlink" title="顺序表删除所有值在s与t之间的元素"></a>顺序表删除所有值在s与t之间的元素</h3><h4 id="方法一-1"><a href="#方法一-1" class="headerlink" title="方法一"></a>方法一</h4><img src="/2023/06/09/%E8%80%83%E7%A0%94%E6%96%87%E4%BB%B6%E5%A4%B9/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%90%9E%E5%AE%9A%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%A0%81/%E6%90%9E%E5%AE%9A%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%A0%81/image-20230613212114257.png" class="" title="image-20230613212114257">
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//思想同上</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Del_s_t_1</span><span class="params">(SqList&amp; L, <span class="keyword">int</span> s, <span class="keyword">int</span> t)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (L.length == <span class="number">0</span> || s&gt;=t) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> k = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; L.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (L.data[i] &gt;= s &amp;&amp; L.data[i] &lt;= t) &#123;</span><br><span class="line">            k++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            L.data[i - k] = L.data[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    L.length = L.length - k;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="方法二-1"><a href="#方法二-1" class="headerlink" title="方法二"></a>方法二</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方法二</span></span><br><span class="line"><span class="comment">//双指针思想同上</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Del_s_t_2</span><span class="params">(SqList&amp; L, <span class="keyword">int</span> s, <span class="keyword">int</span> t)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (L.length == <span class="number">0</span> || s&gt;=t) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; L.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (L.data[i] &lt; s || L.data[i] &gt; t) &#123;</span><br><span class="line">            L.data[j] = L.data[i];</span><br><span class="line">            j++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    L.length = j;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="有序顺序表中删除所有重复的元素"><a href="#有序顺序表中删除所有重复的元素" class="headerlink" title="有序顺序表中删除所有重复的元素"></a>有序顺序表中删除所有重复的元素</h3><img src="/2023/06/09/%E8%80%83%E7%A0%94%E6%96%87%E4%BB%B6%E5%A4%B9/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%90%9E%E5%AE%9A%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%A0%81/%E6%90%9E%E5%AE%9A%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%A0%81/image-20230614205838689.png" class="" title="image-20230614205838689">
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//有序顺序表中删除所有重复的元素</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Del_Same</span><span class="params">(SqList&amp; L)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> j = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; L.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (L.data[i] != L.data[j - <span class="number">1</span>]) &#123;</span><br><span class="line">            L.data[j] = L.data[i];</span><br><span class="line">            j++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    L.length = j;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="有序顺序表删除所有值在s与t之间的元素"><a href="#有序顺序表删除所有值在s与t之间的元素" class="headerlink" title="有序顺序表删除所有值在s与t之间的元素"></a>有序顺序表删除所有值在s与t之间的元素</h3><img src="/2023/06/09/%E8%80%83%E7%A0%94%E6%96%87%E4%BB%B6%E5%A4%B9/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%90%9E%E5%AE%9A%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%A0%81/%E6%90%9E%E5%AE%9A%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%A0%81/image-20230614211533484.png" class="" title="image-20230614211533484">
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//有序顺序表删除所有值在s与t之间的元素</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Del_s_t</span><span class="params">(SqList&amp; L, <span class="keyword">int</span> s, <span class="keyword">int</span> t)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (L.length == <span class="number">0</span> || s &gt;= t) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;   </span><br><span class="line">    <span class="keyword">int</span> i, j;</span><br><span class="line">    <span class="comment">//经过此次循环j的值为大于等于s</span></span><br><span class="line">    <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; L.length &amp;&amp; L.data[j] &lt; s; j++);</span><br><span class="line">    <span class="keyword">if</span> (j == L.length) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//经过此次循环i的值大于t</span></span><br><span class="line">    <span class="keyword">for</span> (i = j; i &lt; L.length &amp;&amp; L.data[i] &lt;= t; i++);</span><br><span class="line">    <span class="comment">//从t后的第一个元素开始，将其后的元素统一向前挪</span></span><br><span class="line">    <span class="keyword">for</span> (i,j; i&lt;L.length&amp;&amp;j &lt; L.length; i++, j++) &#123;</span><br><span class="line">        L.data[j] = L.data[i];</span><br><span class="line">    &#125;</span><br><span class="line">    L.length = j;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="两个有序顺序表合并成为一个新的顺序表C"><a href="#两个有序顺序表合并成为一个新的顺序表C" class="headerlink" title="两个有序顺序表合并成为一个新的顺序表C"></a>两个有序顺序表合并成为一个新的顺序表C</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Merge</span><span class="params">(SqList A, SqList B, SqList&amp; C)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (A.length + B.length &gt; C.MaxSize) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>, k = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (i &lt; A.length &amp;&amp; j &lt; B.length) &#123;</span><br><span class="line">        <span class="keyword">if</span> (A.data[i] &lt; B.data[j]) &#123;</span><br><span class="line">            C.data[k] = A.data[i];</span><br><span class="line">            k++;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            C.data[k] = B.data[j];</span><br><span class="line">            k++;</span><br><span class="line">            j++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (i &lt; A.length) &#123;</span><br><span class="line">        C.data[k] = A.data[i];</span><br><span class="line">        k++;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (j &lt; B.length) &#123;</span><br><span class="line">        C.data[k] = B.data[j];</span><br><span class="line">        k++;</span><br><span class="line">        j++;</span><br><span class="line">    &#125;</span><br><span class="line">    C.length = k;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><h3 id="单链表的结构体定义"><a href="#单链表的结构体定义" class="headerlink" title="单链表的结构体定义"></a>单链表的结构体定义</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">LNode</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">LNode</span>* <span class="title">next</span>;</span></span><br><span class="line">&#125;LNode ,*LinkList;  </span><br></pre></td></tr></table></figure>
+
+<h3 id="单链表的遍历输出（带头节点"><a href="#单链表的遍历输出（带头节点" class="headerlink" title="单链表的遍历输出（带头节点)"></a>单链表的遍历输出（带头节点)</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//遍历链表（带头结点）</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ListVisit</span><span class="params">(LinkList L)</span> </span>&#123;</span><br><span class="line">    LNode* p = L-&gt;next;</span><br><span class="line">    <span class="comment">//p为遍历指针</span></span><br><span class="line">    <span class="keyword">while</span> (p != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, p-&gt;data);</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="带头结点的按位查找和按值查找"><a href="#带头结点的按位查找和按值查找" class="headerlink" title="带头结点的按位查找和按值查找"></a>带头结点的按位查找和按值查找</h3><h4 id="单链表的按位查找"><a href="#单链表的按位查找" class="headerlink" title="单链表的按位查找"></a>单链表的按位查找</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">LNode* <span class="title">Search_i</span><span class="params">(LinkList L, <span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (i &lt; <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> k = <span class="number">1</span>;</span><br><span class="line">    LNode* p = L-&gt;next;</span><br><span class="line">    <span class="keyword">while</span> (p != <span class="literal">NULL</span> &amp;&amp; k &lt; i) &#123;</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">        k++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//返回查找到的节点</span></span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="单链表的按值查找"><a href="#单链表的按值查找" class="headerlink" title="单链表的按值查找"></a>单链表的按值查找</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">LNode* <span class="title">Search_e</span><span class="params">(LinkList L, <span class="keyword">int</span> e)</span> </span>&#123;</span><br><span class="line">    LNode* p = L-&gt;next;</span><br><span class="line">    <span class="keyword">while</span> (p != <span class="literal">NULL</span> &amp;&amp; p-&gt;data != e) &#123;</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//返回查找到的节点</span></span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="头插法建立单链表"><a href="#头插法建立单链表" class="headerlink" title="头插法建立单链表"></a>头插法建立单链表</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">LinkList <span class="title">List_HeadInsert</span><span class="params">(LinkList&amp; L)</span> </span>&#123;</span><br><span class="line">    L = (LNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LNode));</span><br><span class="line">    <span class="comment">//头节点的next指针指向NULL必要</span></span><br><span class="line">    L-&gt;next = <span class="literal">NULL</span>; </span><br><span class="line">    <span class="comment">//s为指向每次新创建节点的指针</span></span><br><span class="line">    LNode* s;</span><br><span class="line">    <span class="keyword">int</span> x;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;x);</span><br><span class="line">    <span class="keyword">while</span> (x != <span class="number">-1</span>) &#123;</span><br><span class="line">        s=(LNode *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LNode));</span><br><span class="line">        s-&gt;data = x;</span><br><span class="line">        <span class="comment">//头插法核心代码</span></span><br><span class="line">        s-&gt;next = L-&gt;next;</span><br><span class="line">        L-&gt;next = s;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;x);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> L;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="尾插法建立单链表"><a href="#尾插法建立单链表" class="headerlink" title="尾插法建立单链表"></a>尾插法建立单链表</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">LinkList <span class="title">List_TailInsert</span><span class="params">(LinkList&amp; L)</span> </span>&#123;</span><br><span class="line">    L=(LNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LNode));</span><br><span class="line">    <span class="comment">//这里头节点的next指针是否指向NULL可有可无,尾部新插一个元素就没有null的事了</span></span><br><span class="line">    L-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="comment">//r指针为指向最后一个节点的指针</span></span><br><span class="line">    LNode* s, * r = L;</span><br><span class="line">    <span class="keyword">int</span> x;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;x);</span><br><span class="line">    <span class="keyword">while</span> (x != <span class="number">-1</span>) &#123;</span><br><span class="line">        s=(LNode *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LNode));</span><br><span class="line">        s-&gt;data = x;</span><br><span class="line">        <span class="comment">//尾插法核心代码</span></span><br><span class="line">        r-&gt;next = s;</span><br><span class="line">        r = s;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;x);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//创建完成后尾部结点指针记得指向NULL</span></span><br><span class="line">    r-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">return</span> L;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="单链表的就地逆置"><a href="#单链表的就地逆置" class="headerlink" title="单链表的就地逆置"></a>单链表的就地逆置</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//单链表的就地逆置（头插法实现）</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Reverse</span><span class="params">(LinkList&amp; L)</span></span>&#123;</span><br><span class="line">    <span class="comment">//p指向第一个节点(即从第一个节点开始遍历),r指针为防断链指针(断链了之后还能找到下个节点的位置)</span></span><br><span class="line">    LNode* p = L-&gt;next, * r;</span><br><span class="line">    <span class="comment">//头节点先和后边的节点先断开</span></span><br><span class="line">    L-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">while</span> (p != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        r = p-&gt;next;</span><br><span class="line">        p-&gt;next = L-&gt;next;</span><br><span class="line">        L-&gt;next = p;</span><br><span class="line">        p = r;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="将一个单链表分解成两个单链表且相对顺序不变"><a href="#将一个单链表分解成两个单链表且相对顺序不变" class="headerlink" title="将一个单链表分解成两个单链表且相对顺序不变"></a>将一个单链表分解成两个单链表且相对顺序不变</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//将一个单链表分解成两个单链表且相对顺序不变</span></span><br><span class="line"><span class="function">LinkList <span class="title">Create_A_B</span><span class="params">(LinkList &amp;A)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//B表初始化</span></span><br><span class="line">    LinkList B = (LNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LNode));</span><br><span class="line">    B-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="comment">//通过尾插法来实现相对顺序不变，故ra为A表的尾指针 rb为B表的尾指针</span></span><br><span class="line">    LNode* p = A-&gt;next, * ra = A, * rb = B;</span><br><span class="line">    <span class="comment">//A表断开</span></span><br><span class="line">    A-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">while</span> (p != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        ra-&gt;next = p;</span><br><span class="line">        ra = p;</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">        <span class="comment">//考虑整个链表只有奇数个的情况</span></span><br><span class="line">        <span class="keyword">if</span> (p != <span class="literal">NULL</span>) &#123;</span><br><span class="line">            rb-&gt;next = p;</span><br><span class="line">            rb = p;</span><br><span class="line">            p = p-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ra-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">    rb-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="comment">//返回B链表</span></span><br><span class="line">    <span class="keyword">return</span> B;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>你可以对我打赏了哦</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/Wechat.jpg" alt="Zidian Wei 微信">
+        <span>微信</span>
+      </div>
+
+  </div>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/02/12/SSM%E7%AC%94%E8%AE%B0/SpringMVC%E7%AC%94%E8%AE%B0/SpringMVC%E7%AC%94%E8%AE%B0/" rel="prev" title="SpringMVC笔记">
+                  <i class="fa fa-chevron-left"></i> SpringMVC笔记
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/06/29/%E8%80%83%E7%A0%94%E6%96%87%E4%BB%B6%E5%A4%B9/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%BB%A3%E7%A0%81/%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%BB%A3%E7%A0%81/" rel="next" title="搞定数据结构">
+                  搞定数据结构 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zidian Wei</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/haruto.model.json"},"display":{"position":"right","hOffset":0,"vOffset":-20,"width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.6},"log":false});</script></body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>
